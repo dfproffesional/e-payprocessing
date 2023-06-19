@@ -1,0 +1,11 @@
+# tmp files
+__pycache__
+
+# Backup files
+*.bkp
+*.bkp*
+
+# Env files
+*.env
+*.env.*
+!.env.example
