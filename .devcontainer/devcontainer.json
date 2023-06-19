@@ -20,9 +20,6 @@
 	"mounts": [
 		"source=${localEnv:HOME}/.ssh,target=/home/app/.ssh,type=bind"
 	],
-	"postStartCommand": { 
-		"uvicorn": ["uvicorn", "--root-path", "${containerEnv:PWD}/app", "main:app", "--reload", "--port", "${containerEnv:UVICORN_DEV_PORT}", "--host", "${containerEnv:UVICORN_DEV_HOST}"]
-	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
