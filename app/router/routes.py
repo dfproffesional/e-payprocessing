@@ -1,10 +1,10 @@
 from fastapi import APIRouter
 
-from service.v1.icl import (
+from service.v1 import (
     reader
 )
 
 app = APIRouter()
-app.prefix = "/v1/icl"
+app.prefix = "/v1"
 
 app.get(path="/read")(reader.index)

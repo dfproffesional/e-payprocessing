@@ -1,1 +1,1 @@
-from .icl import app as icl_router
+from .routes import app as routes

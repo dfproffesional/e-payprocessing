@@ -1,10 +1,9 @@
+from router import routes
 from fastapi import FastAPI
 from middleware import ErrorHandler
 
-from router import icl_router
-
 app = FastAPI()
-app.include_router(icl_router)
+app.include_router(routes)
 app.add_middleware(ErrorHandler)
 
 @app.get('/')
