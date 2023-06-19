@@ -5,6 +5,6 @@ from service.v1 import (
 )
 
 app = APIRouter()
-app.prefix = "/v1"
+app.prefix = "/api/v1"
 
 app.get(path="/read")(reader.index)
