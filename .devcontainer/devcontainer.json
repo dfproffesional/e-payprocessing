@@ -34,7 +34,9 @@
 				"terminal.integrated.defaultProfile.linux": "bash"
 			},
 			"extensions": [
-				"ms-python.python"
+				"ms-python.python",
+				"mhutchie.git-graph",
+				"GitHub.github-vscode-theme"
 			]
 		}
 	},
