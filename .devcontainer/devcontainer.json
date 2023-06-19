@@ -4,37 +4,40 @@
 	"name": "api-e_payprocessing",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"build":{
-		"dockerfile": "../docker/Dockerfile",
+		"dockerfile": "./Dockerfile",
 		"context": ".."
 	},
 
+	"runArgs": [
+        "--env-file", "${localWorkspaceFolder}/.devcontainer/.env"
+    ], 
 	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {
-	// },
+	"features": {
+		"ghcr.io/devcontainers/features/sshd": "latest"
+	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
-
-	"postStartCommand": [ "uvicorn", "main:app", "--reload", "--port", "5000", "--host", "0.0.0.0"],
-
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"ms-python.python"
-			]
-		}
-	},
-
-	"userEnvProbe": "interactiveShell",
-
-	"remoteEnv": {
-		"SHELL": "/bin/bash"
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh,target=/home/app/.ssh,type=bind"
+	],
+	"postStartCommand": { 
+		"uvicorn": ["uvicorn", "main:app", "--reload", "--port", "${containerEnv:UVICORN_DEV_PORT}", "--host", "${containerEnv:UVICORN_DEV_HOST}"]
 	},
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
 
 	// Configure tool-specific properties.
-	// "customizations": {},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			},
+			"extensions": [
+				"ms-python.python"
+			]
+		}
+	},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "app",
