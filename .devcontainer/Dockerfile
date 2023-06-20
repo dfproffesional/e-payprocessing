@@ -3,7 +3,7 @@ FROM python:3.11.4-bullseye
 # Update & Install dependences
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \ 
-    sudo neovim curl wget &&\ 
+    sudo neovim curl wget sqlite3 &&\ 
     rm -rf /var/lib/apt/lists/*
 
 ARG USERNAME=app

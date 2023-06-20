@@ -33,7 +33,9 @@
 			"extensions": [
 				"ms-python.python",
 				"mhutchie.git-graph",
-				"GitHub.github-vscode-theme"
+				"mechatroner.rainbow-csv",
+				"GitHub.github-vscode-theme",
+				"yy0931.vscode-sqlite3-editor"
 			]
 		}
 	},
